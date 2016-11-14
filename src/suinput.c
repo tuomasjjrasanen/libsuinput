@@ -181,6 +181,9 @@ int suinput_enable_event(int uinput_fd, uint16_t ev_type, uint16_t ev_code)
 
         switch (ev_type) {
         case EV_KEY:
+                /* enable repeat property on key event,
+                   just like on a real keyboard */
+                ioctl(uinput_fd, UI_SET_EVBIT, EV_REP);
                 io = UI_SET_KEYBIT;
                 break;
         case EV_REL:
