@@ -20,6 +20,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include <linux/limits.h>
@@ -109,6 +110,7 @@ static char *suinput_get_uinput_path(void)
         udev_dev = udev_device_new_from_subsystem_sysname(udev, "misc",
                                                           "uinput");
         if (udev_dev == NULL) {
+                fprintf(stderr, "uinput module needs to be loaded before using libsuinput\n");
                 goto out;
         }
 
