@@ -17,7 +17,7 @@ all: $(PROGRAMS)
 	$(CC) $(CPPFLAGS_ALL) $(CFLAGS_ALL) -c -o $@ $<
 
 $(PROGRAMS) : % : %.o
-	$(CC) $(LDFLAGS_ALL) $(CFLAGS_ALL) -o $@ $<
+	$(CC) $(CFLAGS_ALL) -o $@ $< $(LDFLAGS_ALL)
 
 clean:
 	rm -f $(PROGRAMS)
